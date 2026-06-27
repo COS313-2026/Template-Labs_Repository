@@ -1,6 +1,6 @@
 {
     "name": "COS313 - Youth Sports Database Workspace",
-    "image": "://microsoft.com",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "forwardPorts": [
         5432
     ],
@@ -11,5 +11,11 @@
             ]
         }
     },
-    "updateContentCommand": "bash .devcontainer/setup_db.sh"
+    "features": {
+        "ghcr.io/devcontainers/features/postgres:1": {
+            "version": "latest"
+        }
+    },
+    "postCreateCommand": "bash .devcontainer/setup_db.sh",
+    "remoteUser": "vscode"
 }
