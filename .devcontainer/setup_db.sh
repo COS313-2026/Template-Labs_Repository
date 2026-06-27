@@ -1,9 +1,11 @@
 #!/bin/bash
 set -e
 
+export DEBIAN_FRONTEND=noninteractive
+
 echo "Installing PostgreSQL database engine..."
 sudo apt-get update
-sudo apt-get install -y postgresql postgresql-client
+sudo -E apt-get install -y postgresql postgresql-client
 
 echo "Starting local PostgreSQL engine..."
 sudo service postgresql start
