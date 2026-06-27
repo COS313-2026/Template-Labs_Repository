@@ -1,6 +1,5 @@
 {
     "name": "COS313 - Youth Sports Database Workspace",
-    "image": "",
     "features": {
         "ghcr.io/devcontainers/features/postgres:1": {
             "version": "16",
@@ -13,9 +12,9 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "cweijan.vscode-database-client2"
+                "cweijan.dbclient-jdbc"
             ]
         }
     },
-    "postCreateCommand": "bash .devcontainer/setup_db.sh"
+    "updateContentCommand": "bash .devcontainer/setup_db.sh"
 }
