@@ -7,7 +7,7 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "cweijan.dbclient-jdbc"
+                "cweijan.vscode-database-client2"
             ]
         }
     },
