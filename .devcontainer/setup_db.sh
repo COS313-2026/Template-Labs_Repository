@@ -1,21 +1,20 @@
 #!/bin/bash
+set -e
 
-echo "Installing minimal database client utility tools..."
-sudo apt-get update && sudo apt-get install -y postgresql-client
+echo "Installing PostgreSQL database engine..."
+sudo apt-get update
+sudo apt-get install -y postgresql postgresql-client
 
-echo "Waiting for isolated PostgreSQL instance to initialize..."
-until pg_isready -h localhost -p 5432 -U admin; do
-  sleep 1
-done
+echo "Starting local PostgreSQL engine..."
+sudo service postgresql start
 
-# Check if data already exists before forcing a re-seed
-TABLE_CHECK=$(psql -h localhost -p 5432 -U admin -d sports_db -t -c "SELECT to_regclass('master_registration_dump');" | tr -d '[:space:]')
+echo "Configuring secure user access..."
+sudo -u postgres psql -c "CREATE USER admin WITH SUPERUSER PASSWORD 'LeaguePassword2026';" || true
+sudo -u postgres psql -c "CREATE DATABASE sports_db OWNER admin;" || true
 
-if [ "$TABLE_CHECK" = "master_registration_dump" ]; then
-  echo "Database structure already present. Skipping initialization."
-else
-  echo "Seeding Master Registration Monolith Dump..."
-  psql -h localhost -p 5432 -U admin -d sports_db -f .devcontainer/seed_data/week01_monolith.sql
-  echo "Database environment compiled successfully!"
-fi
+echo "Seeding Master Registration Monolith Dump..."
+PGPASSWORD=LeaguePassword2026 psql -h localhost -U admin -d sports_db -f .devcontainer/seed_data/week1_monolith.sql
+
+echo "Database sandbox environment compiled successfully!"
+
 

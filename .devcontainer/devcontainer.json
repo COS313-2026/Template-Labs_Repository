@@ -1,8 +1,6 @@
 {
     "name": "COS313 - Youth Sports Database Workspace",
-    "dockerComposeFile": "docker-compose.yaml",
-    "service": "app",
-    "workspaceFolder": "/workspace",
+    "image": "://microsoft.com",
     "forwardPorts": [
         5432
     ],
