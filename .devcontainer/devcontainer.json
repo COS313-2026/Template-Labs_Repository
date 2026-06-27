@@ -12,7 +12,7 @@
         }
     },
     "features": {
-        "ghcr.io/devcontainers/features/postgres:1": {
+        "ghcr.io/devcontainers-contrib/features/postgres:1": {
             "version": "latest"
         }
     },
