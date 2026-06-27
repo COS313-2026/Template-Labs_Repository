@@ -1,13 +1,8 @@
 {
     "name": "COS313 - Youth Sports Database Workspace",
-    "features": {
-        "ghcr.io/devcontainers/features/postgres:1": {
-            "version": "16",
-            "databaseName": "sports_db",
-            "postgresUser": "admin",
-            "postgresPassword": "LeaguePassword2026"
-        }
-    },
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspace",
     "forwardPorts": [
         5432
     ],
