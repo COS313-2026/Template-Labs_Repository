@@ -1,0 +1,21 @@
+{
+    "name": "COS313 - Youth Sports Database Workspace",
+    "image": "",
+    "features": {
+        "ghcr.io/devcontainers/features/postgres:1": {
+            "version": "16",
+            "databaseName": "sports_db",
+            "postgresUser": "admin",
+            "postgresPassword": "LeaguePassword2026"
+        }
+    },
+    "forwardPorts": ,
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "cweijan.vscode-database-client2"
+            ]
+        }
+    },
+    "postCreateCommand": "bash .devcontainer/setup_db.sh"
+}
