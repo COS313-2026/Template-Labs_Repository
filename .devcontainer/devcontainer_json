@@ -16,5 +16,5 @@
             ]
         }
     },
-    "updateContentCommand": "bash .devcontainer/setup_db.sh"
+    "postCreateCommand": "bash .devcontainer/setup_db.sh"
 }
