@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    image: ubuntu:22.04
+    image: node:20-slim
     volumes:
       - ..:/workspace:cached
     network_mode: service:db
