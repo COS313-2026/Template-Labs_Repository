@@ -8,21 +8,14 @@
             "postgresPassword": "LeaguePassword2026"
         }
     },
-    "forwardPorts": ,
+    "forwardPorts": [
+        5432
+    ],
     "customizations": {
         "vscode": {
             "extensions": [
                 "cweijan.dbclient-jdbc"
             ]
-        },
-        "codespaces": {
-            "repositories": {
-                "COS313-2026/Template-Labs_Repository": {
-                    "permissions": {
-                        "contents": "read"
-                    }
-                }
-            }
         }
     },
     "updateContentCommand": "bash .devcontainer/setup_db.sh"
