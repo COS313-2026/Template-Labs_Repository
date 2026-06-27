@@ -41,9 +41,15 @@ git remote add template https://github.com/COS313-2026/Template-Labs_Repository.
 ### 2. Fetch and Merge New Files (Do This EVERY Week)
 Every week when a new lab is released, open your Codespace terminal and run this command:
 
+Every week when a new lab is released, open your Codespace terminal and run this command:
+
 ```bash
-git pull template main --allow-unrelated-histories
+git pull template main --no-rebase --allow-unrelated-histories
 ```
+
+#### What this does:
+* **`--no-rebase`**: Safely merges the new assignment folders into your current repository workspace.
+* Your past solutions in older folders remain completely **untouched and safe**.
 
 #### What this does:
 * It checks the master template for **new assignment folders** and merges them into your workspace.
