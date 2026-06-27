@@ -14,7 +14,16 @@
             "extensions": [
                 "cweijan.dbclient-jdbc"
             ]
+        },
+        "codespaces": {
+            "repositories": {
+                "COS313-2026/Template-Labs_Repository": {
+                    "permissions": {
+                        "contents": "read"
+                    }
+                }
+            }
         }
     },
-    "postCreateCommand": "bash .devcontainer/setup_db.sh"
+    "updateContentCommand": "bash .devcontainer/setup_db.sh"
 }

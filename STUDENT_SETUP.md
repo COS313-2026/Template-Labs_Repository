@@ -35,9 +35,8 @@ As the semester progresses, your instructor will add new weekly folders (e.g., `
 The very first time you need to pull an update, you must tell your local workspace where the parent template lives. Open the terminal window at the bottom of your Codespace editor and execute this exact command:
 
 ```bash
-git remote add template https://github.com
+git remote add template https://github.com/COS313-2026/Template-Labs_Repository.git
 ```
-*(Make sure to replace the URL above with the exact web address of the course organization template provided by your instructor).*
 
 ### 2. Fetch and Merge New Files (Do This EVERY Week)
 Every week when a new lab is released, open your Codespace terminal and run this command:
@@ -58,3 +57,34 @@ Because our youth sports platform grows and changes every week, you must sync yo
 3. Select all text (`Ctrl+A` or `Cmd+A`) and execute the script against your live database connection. 
 
 Your database container is now fully updated and ready for the week's in-class lab challenge!
+
+---
+
+## Part 3: Properly Closing Your Codespaces Session
+
+GitHub Codespaces runs on a cloud virtual machine. To ensure you do not lose your unsaved work or accidentally drain your monthly free hours allocation, follow these engineering shutdown steps at the end of every class.
+
+### Option A: The Quick Exit (Default Behavior)
+You can simply **close your browser tab or window**. 
+* The cloud container will immediately enter an "idle" state.
+* After **30 minutes of total inactivity**, the server will automatically power down to save your hours [index].
+* *Note: While your code is safely saved inside the cloud container, it is not yet backed up to your GitHub profile. To back it up, follow the pro steps below.*
+
+### Option B: Don't waste my Codespaces time method (Recommended)
+Before you close your browser tab, spend 30 seconds running these three terminal commands to push your solutions safely to your cloud backup and instantly freeze your billing timer:
+
+1. **Save and Back Up Your Code**: 
+   Open the terminal window at the bottom of your editor and execute this git sequence to save your answers securely:
+   ```bash
+   git add .
+   git commit -m "Submitting Week X Lab Solutions"
+   git push origin main
+   ```
+
+2. **Force an Immediate Hard Shutdown**:
+   Instead of letting the server idle for 30 minutes, shut it down instantly to preserve your monthly core-hours budget:
+   * Press `Ctrl + Shift + P` (or `Cmd + Shift + P` on Mac) to open the Command Palette.
+   * Type **`Codespaces: Stop Current Codespace`** and press **Enter**.
+
+The screen will turn grey, indicating the server has successfully turned off. You can now close your browser tab knowing your assignment is securely backed up and your hours are completely safe!
+
