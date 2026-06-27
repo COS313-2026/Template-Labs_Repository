@@ -11,11 +11,7 @@
             ]
         }
     },
-    "features": {
-        "ghcr.io/devcontainers-contrib/features/postgres:1": {
-            "version": "latest"
-        }
-    },
+
     "postCreateCommand": "bash .devcontainer/setup_db.sh",
     "remoteUser": "vscode"
 }
