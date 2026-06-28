@@ -1,6 +1,8 @@
 {
     "name": "COS313 - Youth Sports Database Workspace",
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspace",
     "forwardPorts": [
         5432
     ],
@@ -11,7 +13,6 @@
             ]
         }
     },
-
     "postCreateCommand": "bash .devcontainer/setup_db.sh",
     "remoteUser": "vscode"
 }

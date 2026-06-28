@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/base:ubuntu
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    network_mode: service:db
+
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: LeaguePassword2026
+      POSTGRES_DB: sports_db
+    volumes:
+      - ../.devcontainer/seed_data/week01_monolith.sql:/docker-entrypoint-initdb.d/seed.sql
