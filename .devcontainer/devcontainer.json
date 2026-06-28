@@ -6,13 +6,6 @@
     "forwardPorts": [
         5432
     ],
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "cweijan.vscode-database-client2"
-            ]
-        }
-    },
     "postCreateCommand": "bash .devcontainer/setup_db.sh",
     "remoteUser": "vscode"
 }
