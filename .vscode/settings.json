@@ -1,0 +1,13 @@
+{
+  "sqltools.connections": [
+    {
+      "name": "Youth Sports Database",
+      "driver": "PostgreSQL",
+      "server": "localhost",
+      "port": 5432,
+      "database": "sports_db",
+      "username": "admin",
+      "password": "LeaguePassword2026"
+    }
+  ]
+}
