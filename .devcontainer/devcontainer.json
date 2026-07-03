@@ -7,6 +7,9 @@
         5432
     ],
     "customizations": {
+        "codespaces": {
+            "idleTimeout": "30m"
+        },
         "vscode": {
             "extensions": [
                 "mtxr.sqltools",
