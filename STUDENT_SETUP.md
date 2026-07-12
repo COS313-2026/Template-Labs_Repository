@@ -94,3 +94,17 @@ Before you close your browser tab, spend 30 seconds running these three terminal
 
 The screen will turn grey, indicating the server has successfully turned off. You can now close your browser tab knowing your assignment is securely backed up and your hours are completely safe!
 
+---
+
+## Part 4: Submitting Your Work
+
+Instead of just submitting a `.sql` file to Moodle, you must also generate and submit a text output file that shows the exact results of your queries. This allows your instructor to grade your output instantly.
+
+1.  **Generate the Output File**: Open your Codespace terminal (bash) and run the `psql` command to execute your SQL file and save the output. For example, if you are working on the Week 1 homework:
+    ```bash
+    psql -h localhost -p 5432 -U admin -d sports_db -e -f week01/homework.sql > week01_output.txt 2>&1
+    ```
+2.  **Download Your Files**: You need to get these files out of the cloud and onto your local computer.
+    *   In the VS Code file explorer (left sidebar), locate your `.sql` script and your newly generated `.txt` output file.
+    *   **Right-click** on each file and select **Download...** to save them to your computer.
+3.  **Submit**: Upload both files to Moodle.
