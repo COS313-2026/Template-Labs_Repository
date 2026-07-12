@@ -9,7 +9,7 @@ Welcome to your isolated engineering workspace! In this course, you will manage 
 Follow these steps on Day One to create your personal database environment.
 
 ### 1. Generate Your Private Repository
-1. Log into your GitHub account and navigate to the class's organization "COS313-2026" and the course template repository "Template-Labs_Repository".  If you don't yet have access to the organization reach out to the instructor to ensure you are added as a member.
+1. Log into your GitHub account and navigate to the class's organization "COS313-2026" and the course template repository "Template-Labs_Repository". If you don't yet have access to the organization, reach out to the instructor to ensure you are added as a member.
 2. Click the green button at the top-right corner that says **"Use this template"** and select **"Create a new repository"**.
 3. In the setup form, configure the following:
    * **Owner**: Select your personal GitHub username.
@@ -41,18 +41,13 @@ git remote add template https://github.com/COS313-2026/Template-Labs_Repository.
 ### 2. Fetch and Merge New Files (Do This EVERY Week)
 Every week when a new lab is released, open your Codespace terminal and run this command:
 
-Every week when a new lab is released, open your Codespace terminal and run this command:
-
 ```bash
 git pull template main --no-rebase --allow-unrelated-histories
 ```
 
-#### What this does:
-* **`--no-rebase`**: Safely merges the new assignment folders into your current repository workspace.
-* Your past solutions in older folders remain completely **untouched and safe**.
-
-#### What this does:
+#### What this command does:
 * It checks the master template for **new assignment folders** and merges them into your workspace.
+* **`--no-rebase`**: Ensures the merge happens safely.
 * Your past solutions in older folders remain completely **untouched and safe**.
 
 ### 3. Run the Database Environment Transition Script
@@ -73,7 +68,7 @@ GitHub Codespaces runs on a cloud virtual machine. To ensure you do not lose you
 ### Option A: The Quick Exit (Default Behavior)
 You can simply **close your browser tab or window**. 
 * The cloud container will immediately enter an "idle" state.
-* After **30 minutes of total inactivity**, the server will automatically power down to save your hours [index].
+* After **30 minutes of total inactivity**, the server will automatically power down to save your hours.
 * *Note: While your code is safely saved inside the cloud container, it is not yet backed up to your GitHub profile. To back it up, follow the pro steps below.*
 
 ### Option B: Don't waste my Codespaces time method (Recommended)
