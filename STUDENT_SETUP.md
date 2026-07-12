@@ -100,11 +100,18 @@ The screen will turn grey, indicating the server has successfully turned off. Yo
 
 Instead of just submitting a `.sql` file to Moodle, you must also generate and submit a text output file that shows the exact results of your queries. This allows your instructor to grade your output instantly.
 
-1.  **Generate the Output File**: Open your Codespace terminal (bash) and run the `psql` command to execute your SQL file and save the output. For example, if you are working on the Week 1 homework:
-    ```bash
-    psql -h localhost -p 5432 -U admin -d sports_db -e -f week01/homework.sql > week01_output.txt 2>&1
+1.  **Add Your Signature**: At the absolute top of your `.sql` file, you must include the following comment block exactly as shown, filled out with your information. This is required for the automated grading system to recognize your submission:
+    ```sql
+    -- ==========================================
+    -- STUDENT NAME: [First Last]
+    -- STUDENT ID: [ID Number]
+    -- ==========================================
     ```
-2.  **Download Your Files**: You need to get these files out of the cloud and onto your local computer.
+2.  **Generate the Output File**: Open your Codespace terminal (bash) and run the `psql` command to execute your SQL file and save the output. For example, if you are working on the Week 1 homework:
+    ```bash
+    psql -h localhost -p 5432 -U admin -d sports_db -a -f week01/hw_solutions.sql > week01/week01_output.txt 2>&1
+    ```
+3.  **Download Your Files**: You need to get these files out of the cloud and onto your local computer.
     *   In the VS Code file explorer (left sidebar), locate your `.sql` script and your newly generated `.txt` output file.
     *   **Right-click** on each file and select **Download...** to save them to your computer.
-3.  **Submit**: Upload both files to Moodle.
+4.  **Submit**: Upload both files to Moodle.
