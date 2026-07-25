@@ -102,9 +102,16 @@ Instead of just submitting a `.sql` file to Moodle, you must also generate and s
     -- STUDENT ID: [ID Number]
     -- ==========================================
     ```
-2.  **Generate the Output File**: Open your Codespace terminal (bash) and run the `psql` command to execute your SQL file and save the output. For example, if you are working on the Week 1 homework:
+2.  **Generate the Output File**: Open your Codespace terminal (bash) and run the `psql` command to execute your SQL file and save the output. It is critical that you name your output files differently for the Lab and the Homework so they don't overwrite each other!
+
+    **For the In-Class Lab:**
     ```bash
-    psql -h localhost -p 5432 -U admin -d sports_db -a -f week01/hw_solutions.sql > week01/week01_output.txt 2>&1
+    psql -h localhost -p 5432 -U admin -d sports_db -a -f week01/lab_solutions.sql > week01/lab_output.txt 2>&1
+    ```
+    
+    **For the Homework:**
+    ```bash
+    psql -h localhost -p 5432 -U admin -d sports_db -a -f week01/hw_solutions.sql > week01/hw_output.txt 2>&1
     ```
 3.  **Download Your Files**: You need to get these files out of the cloud and onto your local computer.
     *   In the VS Code file explorer (left sidebar), locate your `.sql` script and your newly generated `.txt` output file.
