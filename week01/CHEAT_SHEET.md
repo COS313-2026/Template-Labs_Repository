@@ -5,6 +5,9 @@ This guide provides the basic syntax and concepts you need to survive your first
 ---
 
 ## 1. The Core Anatomy of a Query
+> **🚨 Beginner Trap: Single vs Double Quotes**
+> In SQL, you must always use **single quotes** (`'`) for text strings. Double quotes (`"`) are used for system column names and will cause your query to crash! (e.g. `WHERE team = 'Storm'` is correct, `WHERE team = "Storm"` is broken).
+
 Every basic query follows the same fundamental structure: **What** do you want, **Where** is it, and **How** do you filter it?
 
 ```sql
