@@ -44,6 +44,18 @@ Let's prove your database actually built correctly!
 
 ---
 
+
+### 4. How to Write and Test Queries (SQLTools)
+While you can run queries in the terminal using `psql` (like we did in the Sanity Check), it is much easier to write and test your lab assignments using the visual GUI we pre-installed for you called **SQLTools**.
+
+1. Look at the far left vertical activity bar in VS Code and click on the **Database Icon** (it looks like a little cylinder).
+2. You will see a connection pre-configured for you called **Youth Sports Database**. 
+3. Hover your mouse over it and click the **Connect** icon (it looks like a little plug). The icon will turn green when connected.
+4. To write a query, you can either open any `.sql` file in your workspace, or click the **New SQL File** button in the SQLTools sidebar.
+5. Type your query, and then click **Run on active connection** at the top of the text editor. A results table will pop up on the right side of your screen!
+
+---
+
 ## Part 2: Pulling Weekly Lab Updates
 
 As the semester progresses, your instructor will add new weekly folders to the master template. Follow these steps inside your active cloud terminal to pull down updates without losing your past work.
