@@ -40,7 +40,7 @@ Let's prove your database actually built correctly!
 1. Open the Terminal window at the bottom of your VS Code environment (You can press `Ctrl + ~` or click **Terminal -> New Terminal** in the top menu if it is not open).
 2. Type the following command to connect to your database: `psql -U admin -d sports_db`
 3. Execute this SQL query: `SELECT COUNT(*) FROM master_registration_dump;`
-4. If it returns roughly `47,972`, congratulations! Your environment is perfectly configured. Type `\q` to exit the database.
+4. If it returns exactly `6`, congratulations! Your environment is perfectly configured and the initial test data is loaded. (You will load the full 47,000-row dataset later during the lab). Type `\q` to exit the database.
 
 ---
 
