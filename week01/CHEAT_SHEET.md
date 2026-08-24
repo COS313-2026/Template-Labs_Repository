@@ -8,6 +8,9 @@ This guide provides the basic syntax and concepts you need to survive your first
 > **🚨 Beginner Trap: Single vs Double Quotes**
 > In SQL, you must always use **single quotes** (`'`) for text strings. Double quotes (`"`) are used for system column names and will cause your query to crash! (e.g. `WHERE team = 'Storm'` is correct, `WHERE team = "Storm"` is broken).
 
+> **🚨 Beginner Trap: The Semicolon**
+> SQL is not like Python; it does not care about line breaks. It will keep reading your code as one giant run-on sentence until it hits a semicolon (`;`). If you forget the semicolon at the end of your query, your database will crash when trying to read the next one!
+
 Every basic query follows the same fundamental structure: **What** do you want, **Where** is it, and **How** do you filter it?
 
 ```sql
