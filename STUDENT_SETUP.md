@@ -1,15 +1,25 @@
 # COS313: Database Systems — Student Setup & Workflow Guide
 
-Welcome to your isolated engineering workspace! In this course, you will manage a continuous youth sports software scenario. This guide explains how to initialize your private database sandbox environment and pull new lab assignments each week.
+Welcome to your own personal engineering workspace! In this course, you will manage a continuous youth sports software scenario. This guide explains how to initialize your private database sandbox environment and pull new lab assignments each week.
+
+---
+
+## Step 0: The Prerequisites (GitHub Account)
+
+Before you can launch your database, you need a GitHub account.
+
+1. Navigate to [GitHub.com](https://github.com) and sign up for a free account if you don't already have one. (We highly recommend using your university `.edu` email).
+2. **STRONGLY RECOMMENDED:** Apply for the [GitHub Student Developer Pack](https://education.github.com/pack). 
+   * *Why?* A standard free account gives you 120 hours per core used of cloud computing time per month (standard codespace instance uses 2 cores, so that means 60 hours total per month). That is enough for this class *if* you carefully shut down your workspace. The Student Pack upgrades you to 180 hours per core used of cloud computing time per month, giving you a massive safety net! You can start the coursework today while waiting for your student status to be approved.
 
 ---
 
 ## Part 1: Initializing Your Private Sandbox Workspace
 
-Follow these steps on Day One to create your personal database environment.
+Follow these steps on before the first day of class to create your personal database environment.
 
 ### 1. Generate Your Private Repository
-1. Log into your GitHub account and navigate to the class's organization "COS313-2026" and the course template repository "Template-Labs_Repository". If you don't yet have access to the organization, reach out to the instructor to ensure you are added as a member.
+1. Log into your GitHub account and navigate directly to the course template repository at `https://github.com/COS313-2026/Template-Labs_Repository`. 
 2. Click the green button at the top-right corner that says **"Use this template"** and select **"Create a new repository"**.
 3. In the setup form, configure the following:
    * **Owner**: Select your personal GitHub username.
@@ -18,18 +28,25 @@ Follow these steps on Day One to create your personal database environment.
 4. Click the green **Create repository** button. GitHub will copy the starter files into a new repository under your personal GitHub profile.
 
 ### 2. Launch Your Browser Database Container
-1. Open your newly created personal private repository (e.g. https://github.com/username/COS313_labs).
+1. Open your newly created personal private repository (e.g. `https://github.com/username/COS313_labs`).
 2. Click the green **"<> Code"** button near the top right.
 3. Select the **Codespaces** tab inside the popup wrapper.
 4. Click the green button that says **"Create codespace on main"**.
 
 *Note: Wait roughly 2 minutes for your container to compile. The automated system will boot a Linux environment, install PostgreSQL, seed your data, and launch an in-browser code editor. Your workspace is ready when you see the database explorer icon appear on your left sidebar.*
 
+### 3. The Sanity Check
+Let's prove your database actually built correctly! 
+1. Open the Terminal window at the bottom of your VS Code environment (You can press `Ctrl + ~` or click **Terminal -> New Terminal** in the top menu if it is not open).
+2. Type the following command to connect to your database: `psql -U admin -d sports_db`
+3. Execute this SQL query: `SELECT COUNT(*) FROM master_registration_dump;`
+4. If it returns roughly `47,972`, congratulations! Your environment is perfectly configured. Type `\q` to exit the database.
+
 ---
 
 ## Part 2: Pulling Weekly Lab Updates
 
-As the semester progresses, your instructor will add new weekly folders (e.g., `week02_aggregates/`) to the master template. Follow these steps inside your active cloud terminal to pull down updates without losing your past work.
+As the semester progresses, your instructor will add new weekly folders to the master template. Follow these steps inside your active cloud terminal to pull down updates without losing your past work.
 
 ### 1. Link Your Workspace to the Master Template (Do This ONCE)
 The very first time you need to pull an update, you must tell your local workspace where the parent template lives. Open the terminal window at the bottom of your Codespace editor and execute this exact command:
@@ -42,20 +59,20 @@ git remote add template https://github.com/COS313-2026/Template-Labs_Repository.
 Every week when a new lab is released, open your Codespace terminal and run this command:
 
 ```bash
-git pull template main --no-rebase --allow-unrelated-histories
+git pull template main --no-rebase --allow-unrelated-histories --no-edit
 ```
 
-#### What this command does:
-* It checks the master template for **new assignment folders** and merges them into your workspace.
-* **`--no-rebase`**: Ensures the merge happens safely.
-* Your past solutions in older folders remain completely **untouched and safe**.
+> **🚨 Troubleshooting: The Merge Conflict**
+> Because we added `--no-edit`, Git should update silently. However, if Git suddenly opens a weird text editor or throws an error about a "merge conflict," do not panic! This means you accidentally edited a file from an older week that the instructor also updated. If a text editor named `nano` opens, press `Ctrl + X`, then `N`, then `Enter` to abort. Ask a TA for help resolving the conflict.
 
 ### 3. Run the Database Environment Transition Script
 Because our youth sports platform grows and changes every week, you must sync your PostgreSQL container with the new data requirements. 
 
-1. Look at your file explorer and open the newly pulled weekly folder.
-2. Open the file named `weekX_transition.sql` (where `X` is the current week number).
-3. Select all text (`Ctrl+A` or `Cmd+A`) and execute the script against your live database connection. 
+1. Open the terminal window at the bottom of your editor.
+2. Execute the transition script using `psql` (Make sure you replace `weekX` with the actual folder name, like `week02`):
+   ```bash
+   psql -U admin -d sports_db -f weekX/weekX_transition.sql
+   ``` 
 
 Your database container is now fully updated and ready for the week's in-class lab challenge!
 
@@ -102,7 +119,7 @@ Instead of just submitting a `.sql` file to Moodle, you must also generate and s
     -- STUDENT ID: [ID Number]
     -- ==========================================
     ```
-2.  **Generate the Output File**: Open your Codespace terminal (bash) and run the `psql` command to execute your SQL file and save the output. It is critical that you name your output files differently for the Lab and the Homework so they don't overwrite each other!
+2.  **Generate the Output File**: Open your Codespace terminal (bash) and run the `psql` command to execute your SQL file and save the output. It is critical that you name your output files differently for the Lab and the Homework so they don't overwrite each other! Also be sure to update the folder name each week so that you don't accidentally overwrite what you did in a previous lab or homework assignment.
 
     **For the In-Class Lab:**
     ```bash
