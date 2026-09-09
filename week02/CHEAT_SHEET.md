@@ -9,7 +9,7 @@ Students often get confused by quotes. Memorize this:
 * **NO QUOTES:** Table names, column names, and numbers (e.g., `SELECT first_name FROM master_registration_dump WHERE fee_amount > 10;`).
 * **SINGLE QUOTES (`'`):** Text data/string values *inside* the table (e.g., `WHERE payment_status = 'unpaid'`).
 * **DOUBLE QUOTES (`"`):** Only used if a column name has spaces (which ours do not). Avoid these!
-* **BACKTICKS (\\`):** We use backticks in these instruction documents to highlight code visually, but **NEVER** type backticks into PostgreSQL!
+* **COPY-PASTE WARNING (```sql):** When copying examples from these documents, **NEVER copy the ```sql or ```bash tags!** Those are just formatting tags to make the text colorful. Only copy the actual code *inside* the box.
 
 ---
 
