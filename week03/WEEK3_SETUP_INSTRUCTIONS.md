@@ -32,3 +32,4 @@ psql -U admin -d sports_db -c "SELECT COUNT(*) FROM vendor_gear_shipments;"
 *(If you see "41530" print out on the screen, your database has been successfully updated!)*
 
 **You are now ready to begin the Week 3 Lab!** You can close the terminal and wait for the lab prompts to be posted.
+
