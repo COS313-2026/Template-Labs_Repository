@@ -11,7 +11,7 @@ Before we can begin the lab, you must pull the latest files from the class templ
 
 ## Step 2: Fetch the Week 3 Files
 Pull the newly published Week 3 files down into your workspace. Run this command:
-`ash
+`
 git pull template main --no-rebase --allow-unrelated-histories --no-edit
 `
 > **What this does:** This safely merges the instructor's updates with your personal code. Look at your File Explorer on the left side of VS Code. You should now see a brand new week03/ folder containing your starter files and Cheat Sheet!
@@ -21,15 +21,14 @@ git pull template main --no-rebase --allow-unrelated-histories --no-edit
 If you do not run this script, your database will not have the vendor shipping table, and every single JOIN query you write this week will crash with a "table does not exist" error!
 
 Run this exact command in your terminal to securely load the shipping dataset into your database:
-`ash
+`
 psql -U admin -d sports_db -f week03/week03_transition.sql
 `
 
 **Verify it worked!** Run this quick check in your terminal to make sure the table was created:
-`ash
+`
 psql -U admin -d sports_db -c "SELECT COUNT(*) FROM vendor_gear_shipments;"
 `
 *(If you see "41530" print out on the screen, your database has been successfully updated!)*
 
 **You are now ready to begin the Week 3 Lab!** You can close the terminal and wait for the lab prompts to be posted.
-
