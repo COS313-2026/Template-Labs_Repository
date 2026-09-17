@@ -23,6 +23,10 @@ When you join tables together, you **MUST** tell the database exactly which tabl
 
 ## 2. The Taxonomy of JOINs
 
+> **The Shorthand Rule:** In SQL, the words INNER and OUTER are optional "noise" words. JOIN is identical to INNER JOIN, and LEFT JOIN is identical to LEFT OUTER JOIN. 
+> **However, for this class, you MUST use the full phrasing (e.g., INNER JOIN, LEFT OUTER JOIN).** Explicit code is readable code.
+
+
 ### A. INNER JOIN (The Intersection)
 Returns **only** the rows that have matching values in **both** tables. If a user didn't get a shipment, they vanish from the results.
 ```sql
@@ -91,3 +95,4 @@ GROUP BY m.age_group;
 If you forget to include the `ON` clause, the database doesn't know how to match the rows. It will multiply every single row in Table A by every single row in Table B. 
 
 If you join 50,000 users and 50,000 shipments without an `ON` clause, you will instantly generate a **2.5 billion row table** and likely crash the server! Always check your `ON` clause!
+
