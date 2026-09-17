@@ -26,6 +26,25 @@ When you join tables together, you **MUST** tell the database exactly which tabl
 > **The Shorthand Rule:** In SQL, the words INNER and OUTER are optional keywords. JOIN is identical to INNER JOIN, and LEFT JOIN is identical to LEFT OUTER JOIN. 
 > **However, for this class, you MUST use the full phrasing (e.g., INNER JOIN, LEFT OUTER JOIN).** Explicit code is readable code.
 
+### The Setup Data
+For the following examples, we are joining two tiny tables. Notice that **Charlie** has no test grade, and there is a mysterious **'F'** test with no student attached!
+
+**Table A (demo_students)**
+| student_id | student_name |
+| :--- | :--- |
+| 1 | Alice |
+| 2 | Bob |
+| 3 | Charlie |
+
+**Table B (demo_grades)**
+| grade_id | student_id | score |
+| :--- | :--- | :--- |
+| 101 | 1 | A |
+| 102 | 2 | B |
+| 103 | 99 | F |
+
+---
+
 ### A. CROSS JOIN (The Cartesian Product)
 Multiplies **every** row in Table A by **every** row in Table B. Rarely used (e.g., generating exhaustive grids).
 `sql
@@ -33,30 +52,59 @@ SELECT s.student_name, g.score
 FROM demo_students s
 CROSS JOIN demo_grades g;
 `
+**Output:** (9 chaotic rows! Everyone gets every grade!)
+| student_name | score |
+| :--- | :--- |
+| Alice | A |
+| Alice | B |
+| Alice | F |
+| Bob | A |
+| Bob | B |
+| Bob | F |
+| Charlie | A |
+| Charlie | B |
+| Charlie | F |
 
 ### B. INNER JOIN (The Intersection)
-Returns **only** the rows that have matching values in **both** tables. If a student didn't get a grade, they vanish.
+Returns **only** the rows that have matching values in **both** tables. Charlie and the anonymous 'F' vanish.
 `sql
 SELECT s.student_name, g.score
 FROM demo_students s
 INNER JOIN demo_grades g ON s.student_id = g.student_id;
 `
+**Output:**
+| student_name | score |
+| :--- | :--- |
+| Alice | A |
+| Bob | B |
 
 ### C. LEFT OUTER JOIN (Protect the Left)
-Returns **ALL** rows from the Left table, and the matched rows from the Right. Unmatched right-side columns get NULL.
+Returns **ALL** rows from the Left table, and the matched rows from the Right. Charlie reappears with a NULL grade.
 `sql
 SELECT s.student_name, g.score
 FROM demo_students s
 LEFT OUTER JOIN demo_grades g ON s.student_id = g.student_id;
 `
+**Output:**
+| student_name | score |
+| :--- | :--- |
+| Alice | A |
+| Bob | B |
+| Charlie | NULL |
 
 ### D. RIGHT OUTER JOIN (Protect the Right)
-Returns **ALL** rows from the Right table, and the matched rows from the Left. Unmatched left-side columns get NULL.
+Returns **ALL** rows from the Right table, and the matched rows from the Left. The anonymous 'F' reappears with a NULL name.
 `sql
 SELECT s.student_name, g.score
 FROM demo_students s
 RIGHT OUTER JOIN demo_grades g ON s.student_id = g.student_id;
 `
+**Output:**
+| student_name | score |
+| :--- | :--- |
+| Alice | A |
+| Bob | B |
+| NULL | F |
 
 ### E. FULL OUTER JOIN (The Complete Picture)
 Returns **ALL** rows from both tables, placing NULLs on whichever side is missing a match.
@@ -65,6 +113,13 @@ SELECT s.student_name, g.score
 FROM demo_students s
 FULL OUTER JOIN demo_grades g ON s.student_id = g.student_id;
 `
+**Output:**
+| student_name | score |
+| :--- | :--- |
+| Alice | A |
+| Bob | B |
+| Charlie | NULL |
+| NULL | F |
 
 ---
 
