@@ -97,3 +97,4 @@ If you forget to include the `ON` clause, the database doesn't know how to match
 If you join 50,000 users and 50,000 shipments without an `ON` clause, you will instantly generate a **2.5 billion row table** and likely crash the server! Always check your `ON` clause!
 
 
+
