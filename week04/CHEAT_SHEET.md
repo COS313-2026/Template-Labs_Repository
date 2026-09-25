@@ -2,18 +2,24 @@
 
 ## Data Dictionary
 
-### Table: `master_registration_dump`
+### Table: master_registration_dump
 Our primary legacy table containing user registrations.
-*   `registration_id` (INT) - Primary key.
-*   `first_name` (VARCHAR) - User's first name.
-*   `last_name` (VARCHAR) - User's last name.
-*   `email` (VARCHAR) - User's email address.
-*   `team_name` (VARCHAR) - The name of the team they are assigned to.
-*   `assigned_role` (VARCHAR) - The role of the user (`player`, `coach`, `parent`, `volunteer`).
-*   `fee_amount` (DECIMAL) - The amount paid for registration (0 means scholarship).
-*   `payment_status` (VARCHAR) - Status of their fee (`paid`, `unpaid`, `partial`).
-*   `gear_item` (VARCHAR) - The specific gear item requested (e.g., `Cleats`, `Jersey`).
-*   `gear_quantity` (INT) - The requested quantity.
+*   egistration_id (INT) - Primary key.
+*   email (VARCHAR) - User's email address.
+*   irst_name (VARCHAR) - User's first name.
+*   last_name (VARCHAR) - User's last name.
+*   phone (VARCHAR) - User's phone number.
+*   irthdate (DATE) - User's date of birth.
+*   parent_email (VARCHAR) - Email of the parent/guardian (if applicable).
+*   ssigned_role (VARCHAR) - The role of the user (player, coach, parent, olunteer).
+*   	eam_name (VARCHAR) - The name of the team they are assigned to.
+*   ge_group (VARCHAR) - The age bracket for their team (e.g., U10, U12).
+*   ee_amount (DECIMAL) - The amount paid for registration (0 means scholarship).
+*   payment_status (VARCHAR) - Status of their fee (paid, unpaid, partial).
+*   gear_item (VARCHAR) - The specific gear item requested (e.g., Cleats, Jersey).
+*   gear_size (VARCHAR) - The size of the gear requested.
+*   gear_quantity (INT) - The requested quantity.
+*   egistered_at (TIMESTAMP) - The exact timestamp of when they registered.
 
 ### Table: `vendor_gear_shipments`
 The third-party vendor fulfillment table (added in Week 3).
@@ -66,3 +72,4 @@ WHERE salary > (SELECT AVG(salary) FROM employees);
 SELECT name FROM employees 
 WHERE department_id IN (SELECT department_id FROM active_departments);
 ```
+
