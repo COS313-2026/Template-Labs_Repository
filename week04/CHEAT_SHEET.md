@@ -61,56 +61,37 @@ UNION
 SELECT name FROM employees WHERE department = 'Marketing';
 ```
 
-
 ## Quick Reference: Labeling UNION Queries (Literal Strings)
-When you use a UNION to stack aggregations, you lose context of which table the row came from. You can solve this by typing a hardcoded literal string directly into your SELECT clause. This generates a brand new "label" column out of thin air!
+When you use a `UNION` to stack aggregations, you lose context of which table the row came from. You can solve this by typing a hardcoded literal string directly into your `SELECT` clause. This generates a brand new "label" column out of thin air!
 
 ### Without a Label:
-`sql
-SELECT 
-    SUM(salary) 
-FROM 
-    full_time_employees
-
+```sql
+SELECT SUM(salary) FROM full_time_employees
 UNION ALL
-
-SELECT 
-    SUM(contract_cost) 
-FROM 
-    contractors;
-`
+SELECT SUM(contract_cost) FROM contractors;
+```
 **Output:**
-`	ext
+```text
    sum   
 ---------
  5400000
  1200000
-`
+```
 *(Notice how you have no idea which number is which!)*
 
 ### With a Label (The Solution):
-`sql
-SELECT 
-    'Internal' AS source, 
-    SUM(salary) AS total_cost
-FROM 
-    full_time_employees
-
+```sql
+SELECT 'Internal' AS source, SUM(salary) AS total_cost FROM full_time_employees
 UNION ALL
-
-SELECT 
-    'External' AS source, 
-    SUM(contract_cost) AS total_cost
-FROM 
-    contractors;
-`
+SELECT 'External' AS source, SUM(contract_cost) AS total_cost FROM contractors;
+```
 **Output:**
-`	ext
+```text
   source  | total_cost 
 ----------+------------
  Internal |    5400000
  External |    1200000
-`
+```
 *(The context is now perfectly preserved!)*
 
 ## Quick Reference: Self-Joins
