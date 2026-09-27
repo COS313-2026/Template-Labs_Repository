@@ -2,7 +2,10 @@
 -- COS 313: Week 4 Homework
 -- =================================================================
 
--- Task 1: The High Rollers (Scalar Subquery)
+-- Task 1: The Multi-Hats (Method A - Set Operation)
+
+
+-- Task 1: The Multi-Hats (Method B - Alternative Logic)
 
 
 -- Task 2: The Scholarship Teams (List Subquery)
