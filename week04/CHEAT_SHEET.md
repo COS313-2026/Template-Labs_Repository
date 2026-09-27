@@ -61,6 +61,16 @@ UNION
 SELECT name FROM employees WHERE department = 'Marketing';
 ```
 
+
+## Quick Reference: Labeling UNION Queries (Literal Strings)
+When you use a UNION to stack aggregations, you lose context of which table the row came from. You can solve this by typing a hardcoded literal string directly into your SELECT clause. This generates a brand new "label" column out of thin air!
+
+`sql
+SELECT 'Internal' AS source, SUM(salary) FROM full_time_employees
+UNION ALL
+SELECT 'External' AS source, SUM(contract_cost) FROM contractors;
+`
+
 ## Quick Reference: Self-Joins
 A Self-Join is used when you need to compare rows within the same table. 
 
