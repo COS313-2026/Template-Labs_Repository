@@ -29,22 +29,22 @@ The third-party vendor fulfillment table (added in Week 3).
 *   `shipped_quantity` (INT) - The amount of the item actually shipped.
 *   `shipment_date` (DATE) - The date the item was dispatched.
 
-
 ---
 
 ## Quick Reference: The DISTINCT Keyword
-Set operations like UNION and INTERSECT automatically remove duplicate rows from their final output. However, Alternative Logic methods (like OR clauses or INNER JOINs) do **not** automatically deduplicate data.
+Set operations like `UNION` and `INTERSECT` automatically remove duplicate rows from their final output. However, Alternative Logic methods (like `OR` clauses or `INNER JOIN`s) do **not** automatically deduplicate data.
 
-To force a standard query to perfectly mimic the deduplication of a Set Operation, you must add the DISTINCT keyword immediately after SELECT.
+To force a standard query to perfectly mimic the deduplication of a Set Operation, you must add the `DISTINCT` keyword immediately after `SELECT`.
 
-`sql
+**CRITICAL RULE:** `DISTINCT` does **not** just operate on the first column. It operates on the **entire row combination** of everything listed in the `SELECT` statement. If you add a highly unique column (like an email address or a primary key) to your `SELECT` clause, it will ruin your deduplication because every single row's combination will suddenly become mathematically unique!
+
+```sql
 -- This might return the same person 5 times if they match 5 times
-SELECT name FROM employees WHERE department = 'Sales' OR role = 'Manager';
+SELECT first_name, last_name FROM employees WHERE department = 'Sales' OR role = 'Manager';
 
 -- This mathematically mimics a UNION by forcefully removing duplicates
-SELECT DISTINCT name FROM employees WHERE department = 'Sales' OR role = 'Manager';
-`
-
+SELECT DISTINCT first_name, last_name FROM employees WHERE department = 'Sales' OR role = 'Manager';
+```
 
 ## Quick Reference: Set Operations
 Set operations combine the results of two **independent** queries. Both queries MUST return the exact same number of columns, and the data types of those columns must match in order.
