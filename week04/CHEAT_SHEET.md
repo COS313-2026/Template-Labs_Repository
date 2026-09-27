@@ -67,11 +67,17 @@ When you use a UNION to stack aggregations, you lose context of which table the 
 
 ### Without a Label:
 `sql
-SELECT SUM(salary) 
-FROM full_time_employees
+SELECT 
+    SUM(salary) 
+FROM 
+    full_time_employees
+
 UNION ALL
-SELECT SUM(contract_cost) 
-FROM contractors;
+
+SELECT 
+    SUM(contract_cost) 
+FROM 
+    contractors;
 `
 **Output:**
 `	ext
@@ -84,11 +90,19 @@ FROM contractors;
 
 ### With a Label (The Solution):
 `sql
-SELECT 'Internal' AS source, SUM(salary) AS total_cost
-FROM full_time_employees
+SELECT 
+    'Internal' AS source, 
+    SUM(salary) AS total_cost
+FROM 
+    full_time_employees
+
 UNION ALL
-SELECT 'External' AS source, SUM(contract_cost) AS total_cost
-FROM contractors;
+
+SELECT 
+    'External' AS source, 
+    SUM(contract_cost) AS total_cost
+FROM 
+    contractors;
 `
 **Output:**
 `	ext
