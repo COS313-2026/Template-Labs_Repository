@@ -2,18 +2,15 @@
 -- WEEK 7: DATABASE TRANSITION & RESET SCRIPT
 -- ==============================================================================
 -- Run this script to reset your database to the START of Week 7.
--- It drops all relational tables and views created during Week 7 and Week 8,
--- and cleanses any anomalies in master_registration_dump.
+-- It drops all relational tables and cleanses any legacy anomalies
+-- in master_registration_dump so you begin with a clean slate.
 --
 -- STUDENTS: You will physically create 'users' and 'teams' in Ticket 2!
 --
 -- Usage: psql -d sports_db -f week07_transition.sql
 -- ==============================================================================
 
--- 1. DROP ALL RELATIONAL TABLES AND DOWNSTREAM VIEWS
-DROP VIEW IF EXISTS vw_team_rosters CASCADE;
-DROP VIEW IF EXISTS vw_equipment_manifest CASCADE;
-
+-- 1. DROP ALL RELATIONAL TABLES (SAFE RESET)
 DROP TABLE IF EXISTS gear_orders CASCADE;
 DROP TABLE IF EXISTS registrations CASCADE;
 DROP TABLE IF EXISTS teams CASCADE;
