@@ -43,4 +43,4 @@ psql -U admin -d sports_db -c "SELECT COUNT(*) FROM master_registration_dump;"
 ## Step 4: Ready for Lab & Homework!
 You are now ready to begin:
 - **In-Class Lab:** Open `lab_solutions.md` to design your physical ERD (press `Ctrl + K` then `V` for live preview), and open `lab_solutions.sql` to build and migrate your tables.
-- **Homework:** Work inside `hw7_solutions.sql`.
+- **Homework:** Work inside `hw_solutions.sql`.
