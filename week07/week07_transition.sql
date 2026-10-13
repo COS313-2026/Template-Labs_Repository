@@ -7,7 +7,7 @@
 --
 -- STUDENTS: You will physically create 'users' and 'teams' in Ticket 2!
 --
--- Usage: psql -d sports_db -f week7_transition.sql
+-- Usage: psql -d sports_db -f week07_transition.sql
 -- ==============================================================================
 
 -- 1. DROP ALL RELATIONAL TABLES AND DOWNSTREAM VIEWS
