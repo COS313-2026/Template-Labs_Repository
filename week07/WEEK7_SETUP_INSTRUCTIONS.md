@@ -18,7 +18,7 @@ Pull the newly published Week 7 files down into your workspace. Run this command
 ```bash
 git pull template main --no-rebase --allow-unrelated-histories --no-edit
 ```
-> **What this does:** This safely merges the instructor's template updates with your personal workspace. You should now see a brand new `week07/` folder containing your starter templates, Cheat Sheet, and lecture demo SQL files!
+> **What this does:** This safely merges the instructor's template updates with your personal workspace. You should now see a brand new `week07/` folder containing your starter templates and Cheat Sheets!
 
 ---
 
