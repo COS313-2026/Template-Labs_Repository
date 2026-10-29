@@ -77,7 +77,7 @@ SELECT ... FROM table_name WHERE condition;
 | **`Nested Loop`** | Join Node | For every qualifying row in the outer table, probes the inner table (ideally via an `Index Scan` on an indexed foreign key). Fastest for selective joins. |
 | **`Merge Join`** | Join Node | Joins two inputs that are already sorted on their join keys (e.g., via B-Tree index ordering or an explicit sort node). Highly efficient for large, sorted datasets. |
 | **`cost=startup..total`** | Cost Estimate | Planner's estimated cost (arbitrary units): `startup` is cost to return the **first** row; `total` is cost to return **all** rows. |
-| **`actual time=first..total`**| Actual Runtime| Real elapsed wall-clock time in milliseconds (`ms`): `first` row returned .. `total` time to complete the node. |
+| **`actual time=start..end`** | Actual Runtime | Real elapsed wall-clock time in milliseconds (`ms`): `start` is when the node began returning rows .. `end` is when the node finished returning rows. |
 | **`rows=N`** | Row Count | In estimates: planner's expected rows. Under `actual`: true number of rows returned. Discrepancies indicate stale table statistics. |
 | **`width=N`** | Row Size | Estimated average size of each output row in bytes. |
 | **`loops=N`** | Iterations | Number of times the node was executed (e.g., in a `Nested Loop` inner probe or worker iterations). |
