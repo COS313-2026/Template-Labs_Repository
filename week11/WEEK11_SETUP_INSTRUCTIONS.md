@@ -22,7 +22,20 @@ git pull template main --no-rebase --allow-unrelated-histories --no-edit
 
 ---
 
-## Step 3: Seed the MongoDB Database
+## Step 3: Rebuild Your Codespace Container
+> 🚨 **CRITICAL STEP FOR WEEK 11:**  
+> Because Week 11 introduces MongoDB, your Codespace container needs to be rebuilt once to start the MongoDB Community service alongside PostgreSQL and install the `mongosh` CLI tool.
+
+1. When you run `git pull`, VS Code may display a notification in the bottom-right corner:  
+   *"Configuration files in .devcontainer have changed. Would you like to rebuild your container?"*  
+   Click **Rebuild Now**.
+2. **If you don't see the popup:**  
+   Press `Ctrl + Shift + P` (or `Cmd + Shift + P` on macOS), type **Codespaces: Rebuild Container**, and press Enter.
+3. Wait ~1–2 minutes for the container to rebuild. Both PostgreSQL and MongoDB 7.0 will now be running side-by-side!
+
+---
+
+## Step 4: Seed the MongoDB Database
 > 🚨 **CRITICAL STEP:**  
 > Running this seed script populates your MongoDB database (`sports_db_nosql`) with the 20 real-time match documents needed for today's lab and homework.
 
@@ -40,7 +53,7 @@ mongosh sports_db_nosql --eval "db.live_game_logs.countDocuments();"
 
 ---
 
-## Step 4: Ready for Lab & Homework!
+## Step 5: Ready for Lab & Homework!
 You are now ready to begin:
 - **In-Class Lab:** Work inside `week11/lab_solutions.js`.
 - **Homework:** Work inside `week11/hw_solutions.js`.

@@ -17,3 +17,13 @@ services:
       POSTGRES_DB: sports_db
     volumes:
       - ../.devcontainer/seed_data/week01_monolith.sql:/docker-entrypoint-initdb.d/seed.sql
+
+  mongo:
+    image: mongo:7.0
+    restart: unless-stopped
+    network_mode: service:db
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
