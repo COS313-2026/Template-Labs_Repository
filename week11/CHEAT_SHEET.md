@@ -72,38 +72,42 @@ Each document in `live_game_logs` represents a single sports match (soccer or ba
 
 ---
 
-## 2. Connecting & Navigating `mongosh`
+## 2. Running Queries & Execution Best Practices
 
-MongoDB uses the JavaScript-based interactive shell `mongosh`.
+### A. VS Code MongoDB Playgrounds (Recommended Workflow)
+Your starter files (`lab_solutions.mongodb.js`, `hw_solutions.mongodb.js`) are configured as interactive VS Code MongoDB Playgrounds:
 
-### Terminal Commands (Codespaces Environment)
+* **Connecting:** Click the MongoDB leaf icon on the left bar $\rightarrow$ under **CONNECTIONS**, connect to `mongodb://localhost:27017` (default).
+* **Running Individual Queries:** Highlight the query along with its `db = db.getSiblingDB("sports_db_nosql");` line, right-click, and choose **Run Selected Lines From Playground** (or press **`Ctrl + Alt + S`** / **`Cmd + Alt + S`**).
+* **Full Run & Output Submission:**
+  1. Click the green **Play (▶)** button in the top-right corner of the editor (or `Ctrl + Shift + P` $\rightarrow$ **`MongoDB: Run All From Playground`**).
+  2. The output displays in a side-by-side **`Results.json`** tab.
+  3. Press **`Ctrl + S`** in `Results.json` and save it as **`lab_output.json`** for submission!
+
+---
+
+### B. Terminal Commands (`mongosh`)
+You can also interact with MongoDB directly from your Codespaces terminal:
+
 ```bash
-# Connect to MongoDB in your Codespaces terminal (interactive shell)
-mongosh
-
-# Or connect directly to the course database:
+# 1. Connect to interactive shell
 mongosh sports_db_nosql
 
-# Run a non-interactive script file directly into mongosh:
-mongosh sports_db_nosql < script.js
+# 2. Run a full script and save output to a text file for submission
+mongosh sports_db_nosql < week11/lab_solutions.mongodb.js > week11/lab_output.txt
 
-# Or execute a JavaScript file using mongosh:
-mongosh sports_db_nosql --file script.js
+# 3. Reset database to clean initial state (useful if Ticket 3 was run multiple times)
+mongosh sports_db_nosql < week11/seed_live_game_logs.js
 ```
 
-### Shell Navigation Commands
+> [!TIP]
+> **Pasting Multi-Line Code in Terminal (`.editor` mode):**  
+> If you copy-paste multi-line formatted code into `mongosh`, type `.editor` first, press Enter, paste your code, and press **`Ctrl + D`** to execute cleanly without newline hanging!
+
+### Shell & Script Database Context
 ```javascript
-// Display available databases
-show dbs
-
-// Switch to the target database
-use sports_db_nosql
-
-// Or programmatically select the database in JavaScript scripts:
+// Switches or verifies the active database (included at the start of each ticket/task)
 db = db.getSiblingDB("sports_db_nosql");
-
-// Display collections in the current database
-show collections
 
 // Count documents in a collection
 db.live_game_logs.countDocuments();

@@ -3,18 +3,10 @@
 // STUDENT ID: [ID]
 // ==========================================
 
-// Switch to the target database
+// ------------------------------------------------------------------------------
+// Task 1: Clean Sheet / Defensive Shutout Sweep
+// ------------------------------------------------------------------------------
 db = db.getSiblingDB("sports_db_nosql");
-
-// ------------------------------------------------------------------------------
-// Ticket 0: Environment Verification
-// ------------------------------------------------------------------------------
-
-
-
-// ------------------------------------------------------------------------------
-// Ticket 1: [AUDIT-9101] Live Scoreboard Audit
-// ------------------------------------------------------------------------------
 
 
 
@@ -25,13 +17,9 @@ db = db.getSiblingDB("sports_db_nosql");
 
 
 // ------------------------------------------------------------------------------
-// Ticket 2: [DISCIPLINE-9102] The Red Card Disciplinary Incident
+// Task 2: Stoppage-Time Heroics
 // ------------------------------------------------------------------------------
-// 1. Part A (Diagnostic Query):
-
-
-
-// 2. Part B (Corrected Query):
+db = db.getSiblingDB("sports_db_nosql");
 
 
 
@@ -42,17 +30,31 @@ db = db.getSiblingDB("sports_db_nosql");
 
 
 // ------------------------------------------------------------------------------
-// Ticket 3: [OPS-9103] In-Game Score Correction & Event Appending
+// Task 3: Cross-Sport Division Sweep
 // ------------------------------------------------------------------------------
-// 1. Mutation:
-
-
-
-// 2. Verification Query:
+db = db.getSiblingDB("sports_db_nosql");
 
 
 
 // [DIAGNOSTIC REFLECTION 3]
+// Answer:
+// 
+
+
+
+// ------------------------------------------------------------------------------
+// Task 4: Architectural Reflection
+// ------------------------------------------------------------------------------
+// [DIAGNOSTIC REFLECTION 4]
+// 1. In-Game Write Velocity:
+// Answer:
+// 
+
+// 2. Post-Game Reporting & Analysis:
+// Answer:
+// 
+
+// 3. Schema-on-Read Governance:
 // Answer:
 // 
 

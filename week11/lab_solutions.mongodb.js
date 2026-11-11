@@ -3,12 +3,17 @@
 // STUDENT ID: [ID]
 // ==========================================
 
-// Switch to the target database
+// ------------------------------------------------------------------------------
+// Ticket 0: Environment Verification
+// ------------------------------------------------------------------------------
 db = db.getSiblingDB("sports_db_nosql");
 
+
+
 // ------------------------------------------------------------------------------
-// Task 1: Clean Sheet / Defensive Shutout Sweep
+// Ticket 1: [AUDIT-9101] Live Scoreboard Audit
 // ------------------------------------------------------------------------------
+db = db.getSiblingDB("sports_db_nosql");
 
 
 
@@ -19,8 +24,15 @@ db = db.getSiblingDB("sports_db_nosql");
 
 
 // ------------------------------------------------------------------------------
-// Task 2: Stoppage-Time Heroics
+// Ticket 2: [DISCIPLINE-9102] The Red Card Disciplinary Incident
 // ------------------------------------------------------------------------------
+db = db.getSiblingDB("sports_db_nosql");
+
+// 1. Part A (Diagnostic Query):
+
+
+
+// 2. Part B (Corrected Query):
 
 
 
@@ -31,30 +43,19 @@ db = db.getSiblingDB("sports_db_nosql");
 
 
 // ------------------------------------------------------------------------------
-// Task 3: Cross-Sport Division Sweep
+// Ticket 3: [OPS-9103] In-Game Score Correction & Event Appending
 // ------------------------------------------------------------------------------
+db = db.getSiblingDB("sports_db_nosql");
+
+// 1. Mutation:
+
+
+
+// 2. Verification Query:
 
 
 
 // [DIAGNOSTIC REFLECTION 3]
-// Answer:
-// 
-
-
-
-// ------------------------------------------------------------------------------
-// Task 4: Architectural Reflection
-// ------------------------------------------------------------------------------
-// [DIAGNOSTIC REFLECTION 4]
-// 1. In-Game Write Velocity:
-// Answer:
-// 
-
-// 2. Post-Game Reporting & Analysis:
-// Answer:
-// 
-
-// 3. Schema-on-Read Governance:
 // Answer:
 // 
 
